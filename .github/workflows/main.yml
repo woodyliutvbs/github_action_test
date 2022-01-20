@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Begin
         run: echo "Begin, test 1 ----------------------------------------"
-        - name: filename
+      - name: filename
         run: echo "test"
       - name: End
         run: echo "End, test 1----------------------------------------"
