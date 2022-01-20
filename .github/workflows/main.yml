@@ -27,9 +27,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Begin
-        run: echo "Begin, test 1 ----------------------------------------"
-             echo "test"
-             echo "End, test 1----------------------------------------"
+        run: echo "Begin, test 1 ----------------------------------------\n"
+             echo "test\n"
+             filename='test.txt'
+             while IFS='' read -r line || [[ -n "$line" ]]; do
+                      echo "a $line" # 一行一行印出內容，前面加上 a
+             done < $filename
+             echo "End, test 1----------------------------------------\n"
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
