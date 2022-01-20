@@ -30,9 +30,13 @@ jobs:
         run: echo "Begin, test 1 ----------------------------------------\n"
              echo "test\n"
              filename='test.txt'
-             while IFS='' read -r line || [[ -n "$line" ]]; do
-                      echo "a $line" # 一行一行印出內容，前面加上 a
-             done < $filename
+             exec < $filename
+
+             while read line
+             do
+                echo $line 
+                echo 'a' $line 
+             done        
              echo "End, test 1----------------------------------------\n"
 
       # Runs a set of commands using the runners shell
